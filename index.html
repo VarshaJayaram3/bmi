@@ -1,0 +1,152 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head> 
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BMI Calculator</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+    <link rel="icon" type="image/x-icon" href="./faviconimg/images.png">
+</head>
+<body style="background:linear-gradient(to right,rgb(230, 140, 230),yellow);box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px;">
+
+<!--BMI calculator-->
+<div class="p-1 text-center" style="font-weight: bold;font-size: 40px; color: aliceblue;background:linear-gradient(to right,rgb(230, 140, 230),yellow);text-shadow: 1px 1px 2px black;">BMI CALCULATOR</div>
+<div class="container w-3" style="display: flex; padding: 20px;margin: 10px 0px 10px 110px;align-items: center;justify-content: center;background-color: white;box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; border-radius: 25px">
+    <div style="  padding: 10px 10px 0 10px; background:linear-gradient(to right,rgb(230, 140, 230),yellow);box-shadow: rgba(0, 0, 0, 0.25) 0px 54px 55px, rgba(0, 0, 0, 0.12) 0px -12px 30px, rgba(0, 0, 0, 0.12) 0px 4px 6px, rgba(0, 0, 0, 0.17) 0px 12px 13px, rgba(0, 0, 0, 0.09) 0px -3px 5px; border-radius: 25px">
+        <p style="font-weight: bold;">
+            Age: <input type="number" id="age" class=" form-control" >
+          </p>
+          <p style="font-weight: bold;">
+            Gender: 
+            <input type="radio"  id="f" name="gender" value="Female">
+            <label >Female</label>
+            <input type="radio"  id="m" name="gender" value="Male">
+            <label >Male</label>
+          </p>
+          <p style="font-weight: bold;">Height: 
+            <div class="row">
+                <div class="col-md-9">
+                  <input type="number" id="heightInput" class="form-control">
+                </div>
+                <div class="col-md-3">
+                  <select id="heightUnit" class="form-control" style="font-weight: bold;">
+                    <option value="cm">Cm</option>
+                    <option value="feet">Ft</option>
+                  </select>
+                </div>
+              </div>
+          </p>
+          <p style="font-weight: bold;">Weight:
+            <div class="row">
+                <div class="col-md-9">
+                  <input type="number" id="weightInput" class="form-control">
+                </div>
+                <div class="col-md-3">
+                    <select id=""  class="form-control" style="font-weight: bold;">
+                        <option value="cm">kg</option>
+              
+                  </select>
+                </div>
+
+              </div> <br>
+          <button onclick="calculateBMI()"  class="btn btn-light btn-outline-warning text-dark " style="font-weight: bold; margin-right: 13px;">Calculate BMI</button>
+          <button onclick="cleardata()" class="btn btn-light btn-outline-warning text-dark" style="font-weight: bold;">Reset</button>
+          <br><br>
+         
+           <ul>
+            <li class="uw" style="font-weight: bold; font-size: 14px;">Underweight</li> 
+           <li class="nl" style="font-weight: bold; font-size: 14px;">normal</li>
+            <li class="ow" style="font-weight: bold; font-size: 14px;">overweight</li> 
+            <li class="ob" style="font-weight: bold; font-size: 14px;">obese</li> 
+            <li class="eb" style="font-weight: bold; font-size: 14px;">extremely obese</li> 
+           </ul>
+    </div>
+    <div style="padding-left: 100px;padding-top: 5px;">
+<div class="gauge" >
+    <div class="speedometer" >
+        <div class="needle" id="n">
+        <span class="score">BMI</span>
+        
+        </div>
+        <div  style="padding-top:240px;" >
+          <p id="weightstatus" style="font-size: larger;padding-left: 100px;font-weight: bold; font-style: italic;">Weight status :</p>
+          <p style="font-size: larger;padding-left: 100px;font-weight: bold; font-style: italic;">Your BMI is: <span id="result"> </span></p>
+          <p style="font-size: 12px; font-style: italic; font-weight: bold;">The Body Mass Index (BMI) helps in calculating the height-to-weight ratio of a person. The score determines if a person is at his/her healthy weight or needs to shed or gain more kilos. A BMI calculator is widely used as a general tool to assess if a person has a healthy body weight proportional to their height.</p>
+        </div>
+      
+        
+    </div>
+</div> 
+    
+</div>
+</div>
+</div>
+
+
+
+<!--content-->
+<div style="background:linear-gradient(to right,rgb(230, 140, 230),yellow); padding: 30px;">
+
+
+    <div class="page-info_list">
+        <h3>What Is BMI?  </h3>
+        <p>BMI stands for Body Mass Index. A person’s BMI is calculated by dividing their weight in kilograms by the square of height in metres. It is an effective and easy way to calculate whether or not someone is at their ideal weight. </p>  
+    </div>
+    <div class="page-info_list">
+       <p>BMI provides an idea of the amount of fat someone may have and if any changes are required. Being able to calculate whether someone is obese, underweight, overweight or at their ideal weight helps measure the risk of other illnesses. An unhealthy weight might make one prone to a range of chronic and lifestyle diseases. Several lifestyle diseases are tied to obesity while being underweight also poses health risks. </p>
+    </div>
+    <div class="page-info_list">
+       <h3>What Is Ideal BMI For Men And Women? </h3>
+       <p>The BMI calculation remains the same for everyone over the age of 20. BMI is calculated by the height and weight of the given person. The ideal BMI range for men and women is between 18.5 to 24.9. Anything below 18.5 would be considered underweight while 25.0 and over is considered overweight. A BMI of 30.0 and above is considered obese.</p>
+    </div>
+    <div class="page-info_list">
+       <p>This range is wide and where you are placed on this range in accordance with your height can help you better understand whether or not you are at a healthy weight. </p>
+    </div>
+    <div class="page-info_list">
+       <h3>BMI Categories</h3>
+       <p>Below 18.5 - Underweight  </p>
+       <p>18.5-24.9 - Normal </p>
+       <p>25.0-29.9 - Overweight </p>
+       <p>30.0 and higher  -  Obese</p>
+    </div>    <div class="page-info_list">
+       <h3>BMI Formula </h3>
+       <p>Below are the formulae for calculating BMI as per the the International System of Units (SI) and the US customary system (USC):</p>
+    </div>
+    <div class="page-info_list">
+       <p>BMI = weight ÷ height in meters squared</p> 
+       <p>Metric units: BMI = weight (kg) ÷ height in meters squared</p>
+       <p>US units: BMI = weight (lb) ÷ height in inches squared * 703</p>
+    </div>
+    
+    <div class="page-info_list">
+       <p>Note that BMI cannot be the only marker of your health and fitness level. It is always ideal to speak to a health professional to better understand whether or not you are at the right weight and factors that could be affecting your weight other than diet and lifestyle. </p>    
+    </div>    
+    
+</div>
+ 
+
+</div>
+
+
+<footer class="bg-body-tertiary text-center">
+    <!-- Grid container -->
+    <div class="container "></div>
+    <!-- Grid container -->
+
+    <!-- Copyright -->
+    <div class="text-center text-light p-3" style="height: 50px;background:linear-gradient(to right,yellow,purple)">
+        © 2024 Copyright:
+        <a class="text-light"
+            href="https://www.linkedin.com/in/varshajayaram3?utm_source=share&utm_campaign=share_via&utm_content=profile&utm_medium=android_app"
+            target="_blank">Varsha jayaram</a>
+    </div>
+    <!-- Copyright -->
+</footer>
+
+    
+</body>
+<script src="script.js"></script>
+</html>

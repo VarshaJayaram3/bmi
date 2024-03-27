@@ -1,0 +1,94 @@
+*{
+    margin: 0;
+    box-sizing: border-box;
+    
+}
+
+    .speedometer{
+        width: 500px;
+        height: 500px;
+        padding: 70px;
+        border-radius: 50%;
+        background:radial-gradient(#ffff 0 0) content-box, 
+        conic-gradient(
+            from -90deg,
+                var(--C1, #C1262C) 36deg, 
+                var(--C2, #DB5C23) 0 72deg, 
+                var(--C3, #F69220) 0 108deg, 
+                var(--C4, #8BA247) 0 144deg,
+                var(--C5, #23B473) 0 180deg,
+            #0000 0
+        );   position: relative;
+    }
+
+
+        .needle{
+            position: absolute;
+            width: 380px;
+            height: 380px;
+            padding: 150px;
+            left: 50%;
+            top: 50%;
+            translate: -50% -50%;
+            border-radius: 50%;
+            background:
+            conic-gradient(
+                from 175deg at 50% 55%,
+                #ccc 2deg,
+                #ea1c98 3deg 7deg,
+                #ccc 8deg 10deg,
+                #0000 0
+            )0 -217px no-repeat,
+            radial-gradient(
+                #ea1c98 0 50%,
+                #ccc 51%
+            ) content-box;
+            rotate:calc(cos(var(--score)* 180deg/ 100)* -90deg);
+            display:flex;
+            justify-content: center;
+            align-items: center;
+
+            .score{
+                rotate:calc(cos(var(--score)* 180deg/ 100)* 90deg);
+                font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+                font-size: 18px;
+                font-weight: 800;
+                color: #ccc;
+            }
+        } 
+
+
+        ul .uw::marker{
+            color: red;
+            font-size: 16px;
+
+        }
+        ul .nl::marker{
+            color: rgb(244, 141, 24);
+            font-size: 16px;
+
+        }
+        ul .ow::marker{
+            color: #e4ca08;
+            font-size: 16px;
+
+        }
+        ul .ob::marker{
+            color: green;
+            font-size: 16px;
+
+        }
+        ul .eb::marker{
+            color: rgb(10, 220, 41);
+            font-size: 16px;
+
+        }
+
+
+.page-info_list{
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif ;
+    font-weight: 150px;
+}
+/* styling bmi calculator */
+    
+
